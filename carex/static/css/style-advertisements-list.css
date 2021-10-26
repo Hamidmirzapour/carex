@@ -1,0 +1,63 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+  font-family: 'Nazanin';
+  src: url('../fonts/Nazanin.eot?#') format('eot'),  
+       url('../fonts/Nazanin.woff') format('woff'),
+       url('../fonts/Nazanin.ttf') format('truetype');
+  font-style:normal;
+  font-weight:normal;
+}
+@font-face {
+  font-family: 'IRANSans';
+  src: url('../fonts/IRANSansWeb.eot?#') format('eot'),  
+       url('../fonts/IRANSansWeb.woff') format('woff'),
+       url('../fonts/IRANSansWeb.woff2') format('woff2'),
+       url('../fonts/IRANSansWeb.ttf') format('truetype');
+  font-style:normal;
+  font-weight:normal;
+}
+body{
+	font-family: IRANSans;
+}
+a{
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+#showcase-inner {
+    background: url(../images/audi_s4_avant_tdi_2019_4k-1280x720.jpg) no-repeat center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px; 
+}
+#listings h3{
+	font-weight: 700;
+}
+.card-body{
+    font-size: 14px;
+}
+.listing-preview a {
+    position: relative; 
+}
+.btn-primary{
+    background-color: #16c3cf;
+    outline-color: #16c3cf;
+}
+.text-primary{
+    color: #16c3cf !important;
+}
+.more a{
+    width: 90%;
+    text-decoration: none;
+    color: whitesmoke;
+}
+.more a:hover{
+    width: 90%;
+    text-decoration: none;
+    color: whitesmoke;
+}

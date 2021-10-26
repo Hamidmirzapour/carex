@@ -1,0 +1,61 @@
+{% load static %}
+
+<div class="banner" id="banner">
+    <div class="logo">
+        <a href="/mainpage"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+    </div>
+</div>
+<div class="nav-wrapper">
+    <div class="hamburger-menu">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+    </div>
+    <nav class="top-nav">
+        <ul class="nav-list">
+            <li>
+                <a href="{% url 'pages:main' %}" class="nav-link" data-text=" صفحه اصلی "> صفحه اصلی </a>
+            </li>
+            <li>
+                <a href="{% url 'car:carList' %}" class="nav-link" data-text=" خودروها "> خودروها </a>
+            </li>
+            <li>
+                <a href="{% url 'advertisement:advertisements' %}" class="nav-link" data-text=" آگهی ها "> آگهی ها </a>
+            </li>
+            <li>
+                <a href="{% url 'pages:gallery' %}" class="nav-link" data-text=" گالری تصاویر "> گالری تصاویر </a>
+            </li>
+            <li>
+                <a href="{% url 'pages:team' %}" class="nav-link" data-text=" تیم ما "> تیم ما </a>
+            </li>
+            <li>
+                <a href="{% url 'pages:contact' %}" class="nav-link" data-text=" ارتباط با ما "> ارتباط با ما </a>
+            </li> 
+        </ul>
+    </nav>
+    <nav class="bottom-nav">
+        <ul class="icons">
+            {% if user.is_authenticated %}
+                <li class="icon-item">
+                    <a href="{% url 'account:logout' %}" class="icon-link"><i>  خروج  </i></a>
+                </li>
+                <li class="icon-item">
+                    <a href="{% url 'account:dashboard' %}" class="icon-link"><i>  پروفایل کاربری  </i></a>
+                </li>
+                <li class="icon-item">
+                    <a href="{% url 'advertisement:create' %}" class="icon-link"><i>  ثبت آگهی  </i></a>
+                </li>                
+            {% else %}
+                <li class="icon-item">
+                    <a href="{% url 'account:register' %}" class="icon-link"><i>  ثبت نام  </i></a>
+                </li>
+                <li class="icon-item">
+                    <a href="{% url 'account:login' %}" class="icon-link"><i>  ورود  </i></a>
+                </li>
+                <li class="icon-item">
+                    <a href="{% url 'advertisement:create' %}" class="icon-link"><i>  ثبت آگهی  </i></a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>

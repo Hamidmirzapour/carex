@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'Nazanin';
+    src: url('../fonts/Nazanin.eot?#') format('eot'),  
+         url('../fonts/Nazanin.woff') format('woff'),
+         url('../fonts/Nazanin.ttf') format('truetype');
+    font-style:normal;
+    font-weight:normal;
+}
+  @font-face {
+    font-family: 'IRANSans';
+    src: url('../fonts/IRANSansWeb.eot?#') format('eot'),  
+         url('../fonts/IRANSansWeb.woff') format('woff'),
+         url('../fonts/IRANSansWeb.woff2') format('woff2'),
+         url('../fonts/IRANSansWeb.ttf') format('truetype');
+    font-style:normal;
+    font-weight:normal;
+}
+  body{
+      font-family: IRANSans;
+}
+.container-fluid{
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/mclaren_gt_4k-1280x720.jpg) no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* .col-lg-6{
+    display: flex;
+    justify-content: center;
+} */
+/* form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5));
+} */
+form{
+    margin-top: 60px;
+    text-align: right;
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5));
+}
+input{
+    /* margin: 5px 0 !important; */
+    width: 90%;
+    /* padding: 5px 5px; */
+}
+textarea{
+    margin-top: 10px ;
+    width: 90%;
+    padding: 5px 5px;
+    height: 150px;
+}
+button{
+    width: 90% !important;
+    margin-bottom: 5px;
+}
+.left{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5));
+    margin-top: 60px;
+}
+.google-map{
+    margin: 20px 0;
+    width: 90%;
+    text-align: center;
+}
+.info{
+    width: 90%;
+    text-align: right;
+    background: linear-gradient(to left top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+.info h3{
+    font-size: 14px;
+    color: whitesmoke;
+    margin: 15px 20px;
+}
+.social-icons{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.social-iconss i{
+    font-size: 20px;
+}
+.fa-facebook-f{
+    color: #3b5999;
+}
+.fa-youtube{
+    color: #cd201f;
+}
+.fa-twitter{
+    color: #55acee;
+}
+.fa-google-plus-g{
+    color: #dd4b39;
+}
+.heading{
+    position: absolute;
+    top: 5%;
+    right: 50%;
+    transform: translateX(50%);
+    color: wheat;
+    font-size:45px;
+}
+
+
+
+
+
+.banner{
+    width: 100%;
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    z-index: 100;
+}
+.logo img{
+    width: 100%;
+}
+
+.hamburger-menu{
+    width: 35px;
+    height: 30px;
+    position: fixed;
+    top: 40px;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 100;
+}
+.line{
+    width: inherit;
+    height: 5px;
+    background-color: #16c3cf;
+    border-radius: 25px;
+    transform-origin: right;
+    transition: transform .5s;
+}
+.line-2{
+    height: 3px;
+}
+.change .line-1{
+    transform: rotateZ(-45deg);
+}
+.change .line-2{
+    transform: translate(5px, 20px);
+}
+.change .line-3{
+    transform: rotateZ(45deg);
+}
+.top-nav{
+    height: 15vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8))
+    , url(../images/4.jpg) no-repeat 50% 0;
+    background-size: cover;
+    position: fixed;
+    top: -15vh;
+    z-index: 50;
+    transition: top .4s;
+}
+.change .top-nav{
+    top: 0;
+}
+.nav-list{
+    list-style: none;
+    width: 80%;
+    margin: auto;
+    height: inherit;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav-list li{
+    transform: perspective(500px);
+}
+.nav-link{
+    text-decoration: none;
+	font-family: IRANSans;
+    font-size: 24px;
+    color: #fff;
+    background-color: #000;
+    letter-spacing: 1px;
+    display: block;
+    transform-origin: top;
+    padding: 5px 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .3s;
+}
+.nav-link:hover{
+    transform: rotateX(90deg);
+}
+.nav-link::after{
+    content: attr(data-text);
+    position: absolute;
+    right: 0;
+    bottom: -100%;
+    background-color: #000;
+    padding: inherit;
+    color: #16c3cf;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+.bottom-nav{
+    width: 100%;
+    height: 85vh;   
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8))
+    , url(../images/4.jpg) no-repeat 50% -15vh;
+    background-size: cover;
+    position: fixed;
+    z-index: 100;
+    bottom: -85vh;
+    transition: bottom .4s;
+}

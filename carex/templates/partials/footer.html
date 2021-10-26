@@ -1,0 +1,87 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style-main-page.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{% static 'js/app.main-page.js' %}"></script>
+
+
+<section id="footer" class="py-2">
+    <div class="col-12">
+        <h1>نمایشگاه خودرو کارکس</h1>
+    </div>
+    <div class="row footer-body">
+        <div class="first-col col-md-6 col-lg-4">
+            <h5>درباره نمایشگاه خودرو کارکس</h5>
+            <div class="first">
+                <i class="fas fa-check"></i>
+                <p>نمایشگاه خودرو کارکس اولین و بزرگترین فروشنده خودروهای لوکس در
+                    شرق کشور می باشد. </p>
+            </div>
+            <a href="{% url 'pages:contact' %}">
+                <div class="first">
+                    <i class="fa fa-arrow-circle-right"></i>
+                    <p> ارتباط با ما </p>
+                </div>
+            </a>
+            <a href="{% url 'pages:team' %}">
+                <div class="first">
+                    <i class="fa fa-arrow-circle-right"></i>
+                    <p> تیم ما </p>
+                </div>
+            </a>
+        </div>
+        <div class="first-col col-md-6 col-lg-4">
+            <h5> فعالیت ها و برنامه ها </h5>
+            <div class="first">
+                <i class="fas fa-check"></i>
+                <p> وارد کننده نمونه ملی و استانی </p>
+            </div>
+            <div class="first">
+                <i class="fas fa-check"></i>
+                <p>ساخت اولین کارخانه تولید خودروهای الکتریکی در خاورمیانه (در حال
+                    انجام) </p>
+            </div>
+            <div class="first">
+                <i class="fas fa-check"></i>
+                <p>کسب جوایز مختلف در زمینه مشتری مداری </p>
+            </div>
+        </div>
+        <div class="first-col col-md-6 col-lg-4">
+            <h5> تماس با ما </h5>
+            <div class="first">
+                <i class="fas fa-check"></i>
+                <p> شماره تماس: 98513893455+ </p>
+            </div>
+            <div class="first">
+                <i class="fas fa-check"></i>
+                <p>ایمیل: info@carex.ir</p>
+            </div>
+            <div class="first">
+                <i class="fas fa-check"></i>
+                <p>آدرس: مشهد - جلال آل احمد 64 - پلاک 64</p>
+            </div>
+            <div class="social-networks">
+                <li class="icon">
+                    <a href="#" class="icon1-link"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="icon">
+                    <a href="#" class="icon2-link"><i class="fab fa-youtube"></i></a>
+                </li>
+                <li class="icon">
+                    <a href="#" class="icon3-link"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="icon">
+                    <a href="#" class="icon4-link"><i class="fab fa-google-plus-g "></i></a>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 copyright">
+        <a class="up-icon" href="#banner"><i class="fa fa-arrow-alt-circle-up"></i></a>
+        <p>&copy; کپی رایت تمام حقوق مادی و معنوی این سایت متعلق به نمایشگله خودرو
+            کارکس است. </p>
+    </div>
+</section>

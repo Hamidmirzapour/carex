@@ -1,0 +1,42 @@
+{% extends "shared/base.html" %}
+
+{% block title %}
+    رزرو
+{% endblock title %}
+
+
+
+
+{% block body %}
+<div class="jumbotron" style="text-align:center; height: 100vh;">
+
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">
+        {% if 'safe' in message.tags %}
+            {{ message|safe }}
+        {% else %}
+            {{ message }}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<br><br><br>
+    <p>شما اکنون می توانید با وارد کردن شماره خود، خودرو {{car.name}} را رزرو نمایید. </p>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{form.as_p}}
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit", style="width:80px;">رزرو</button>
+    </form>
+    </p>
+  </div>
+{% endblock body %}
+
+
+{% block footer %}
+
+{% endblock footer %}

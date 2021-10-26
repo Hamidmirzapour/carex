@@ -1,0 +1,46 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load humanize %}
+
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="header col-12" style="background: linear-gradient(to right, rgba(0, 0, 0, .7),
+    rgba(0, 0, 0, .8)), url({% static 'images/1.jpg' %}) no-repeat center;
+   background-size: cover;
+   filter: contrast(70%);
+    height: 50vh ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+            <img src="{{advertisement.image1.url}}">
+        </div>
+    </div>
+</div>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-lg-12 mt-5">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">عنوان آگهی</h5>
+                        <p class="card-text">{{advertisement.title}}</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">متن آگهی</h5>
+                        <p class="card-text">{{advertisement.description}}</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title"> قیمت </h5>
+                        <p class="card-text">{{advertisement.cost}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %} 

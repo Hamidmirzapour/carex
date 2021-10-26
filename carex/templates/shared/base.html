@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% block bootstraplink %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">    
+    {% endblock bootstraplink %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    {% block stylelink %}
+        <link rel="stylesheet" href="{% static 'css/style-main-page.css' %}">
+    {% endblock stylelink %}
+
+
+    <title>نمایشگاه خودرو کارکس | {% block title%}{%endblock%}</title>
+</head>
+<body>
+
+    {% block nav %}
+        {% include "partials/navigation.html" %}
+    {% endblock nav %}
+    
+    {% block body %}
+    
+    {% endblock body %}
+
+    {% block footer %}
+        {% include "partials/footer.html" %}
+    {% endblock footer %}
+
+    {% block bootstrapscripts %}
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    {% endblock bootstrapscripts %}
+
+
+    {% block scriptlink %}
+        <script src="{% static 'js/app-main-page.js' %}"></script>
+    {% endblock scriptlink %}
+
+</body>
+</html>

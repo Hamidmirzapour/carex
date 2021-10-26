@@ -1,0 +1,39 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+{% block bootstraplink %}
+    
+{% endblock bootstraplink %}
+{% block stylelink %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock stylelink %}
+
+{% block title %}
+    خوش آمدید {{super}}
+{% endblock title %}
+
+{% block nav %}
+
+{% endblock nav %}
+
+{% block body %}
+    <div class="container">
+        <div class="banner">
+            <h1 class="banner-heading"></h1>
+            <button type="button" onclick="window.location.href = '/mainpage';"
+             class="banner-btn">وارد شوید</button>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block footer %}
+
+{% endblock footer %}
+
+{% block bootstrapscripts %}
+
+{% endblock %}
+
+
+{% block scriptlink %}
+    <script src="{% static 'js/app.js' %}"></script>
+{% endblock scriptlink %}

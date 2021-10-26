@@ -1,0 +1,72 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    تیم ما
+{% endblock title %}
+
+{% block stylelink %}
+    <link rel="stylesheet" href="{% static 'css/style-team.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-main-page.css' %}">
+{% endblock  %}
+
+{% block body %}
+    <div class="container">
+        <div class="heading"></div>
+        <div class="cards-wrapper">
+            <div class="card">
+                <img src="{% static 'images/1.jpg' %}" alt="" class="image-top">
+                <img src="{% static 'images/john-doe.jpg' %}" alt="hamid" class="profile-image">
+                <h1 class="fullname">حمید میرزاپور</h1>
+                <p class="job">توسعه دهنده بک اند</p>
+                <p class="about-me">Lorem ipsum, dolor
+                    sit amet consectetur adipisicing elit. Illum quae aliquid eveniet quis placeat unde!</p>
+                <button type="button">مشاهده پروفایل</button>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                </ul>
+            </div>
+            <div class="card-hidden-wrapper">
+                <div class="card-hidden">
+                    <img src="{% static 'images/4.jpg'%} " alt="" class="image-top">
+                    <img src="{% static 'images/img2.jpeg'%}" alt="rasoul" class="profile-image">
+                    <h1 class="fullname">رسول بابایی</h1>
+                    <p class="job">توسعه دهنده فرانت اند </p>
+                    <p class="about-me">Lorem ipsum, dolor
+                        sit amet consectetur adipisicing elit. Illum quae aliquid eveniet quis placeat unde!</p>
+                    <button type="button"> مشاهده پروفایل </button>
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/3.jpg' %}" alt="" class="image-top">
+                <img src="{% static 'images/img3.jpeg' %}" alt="hamid" class="profile-image">
+                <h1 class="fullname">مریم رضایی </h1>
+                <p class="job">مدیر سایت</p>
+                <p class="about-me">Lorem ipsum, dolor
+                    sit amet consectetur adipisicing elit. Illum quae aliquid eveniet quis placeat unde!</p>
+                <button type="button"> مشاهده پروفایل </button>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+{% block scriptlink %}
+    <script src="{% static 'js/app-team.js' %}"></script>
+    <script src="{% static 'js/app-main-page.js' %}"></script>
+{% endblock scriptlink %}

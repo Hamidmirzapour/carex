@@ -1,0 +1,169 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block stylelink %}
+<link rel="stylesheet" href="{% static 'css/style-profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/style-main-page.css' %}">
+{% endblock stylelink %}
+
+{% block body %}
+<div class="container-fluid text-right">
+    <div class="row" style="background-color:#f1f1f1;">
+        <div class="col-md-12 text-center mt-5 mb-5">
+            <h2>پروفایل کاربری</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="im">
+            {% if user.profile.photo %}
+                <img src="{{user.profile.photo}}" alt="Avatar">
+            {% else %}
+                <img src="{% static 'images/profile.png' %}" alt="Avatar">
+            {% endif %}
+            <p>{% if user.first_name %}
+            
+            {{user.first_name}} {% endif %} {% if user.last_name %} {{user.last_name}} {% endif %}</p>
+        </div>
+
+        <div id="profile-info" class="tabcontent pt-5" style="background-color:#444444; color: #fff;">
+            <div>
+                <div class="text-center">
+                    <h4>مشخصات شخصی من</h4>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>نام: {{user.first_name}}</p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>نام خانوادگی: {{user.last_name}}</p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>نام کاربری: {{user.username}}</p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>ایمیل: {{user.email}}</p>
+                </div>
+                <div class="col-sm-12">
+                    <p>شما می توانید برای تغییر اطلاعات شخصی خود یا اضافه کردن عکس برای پروفایل کاربری خود <a href="{% url 'account:edit' %}">اینجا</a>
+                        کلیک نمایید.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="London" class="tabcontent pt-5" style="background-color:#444444; color: #fff;">
+            <div>
+                <div class="text-center">
+                    <h4>آگهی های من</h4>
+                </div>
+                <div class="col-md-12">
+                    {% for ads in advertisements %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card listing-preview">
+                            <img class="card-img-top" src="{{ ads.image1.url }}" alt="">
+                            <div class="card-body text-center">
+                                <div class="listing-heading text-center">
+                                    <h4 class="text-primary">{{ads.title}}</h4>
+                                </div>
+                                <hr>
+                                <div class="row py-2 text-secondary">
+                                    <div class="col-12 text-center">
+                                        <i class="fas fa-map-marker"></i>{{ads.city}}</div>
+                                </div>
+                                <div class="row py-2 text-secondary">
+                                    <div class=" col-12 text-center price">قیمت : {{ ads.cost | intcomma:False }} تومان</div>
+                                </div>
+                                <hr>
+                                <a href="{% url 'advertisement:detail' ads.id %}" class="btn btn-primary btn-block">اطلاعات بیشتر</a>
+                                <hr>
+                                <a href="{% url 'advertisement:edit' ads.id %}" class="btn btn-warning">ویرایش</a>
+                                <a href="{% url 'advertisement:delete' ads.id %}" class="btn btn-danger">حذف</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div id="Paris" class="tabcontent pt-5" style="background-color:#444444; color: #fff;">
+            <div>
+                <div class="text-center">
+                    <h4>خودروهای من</h4>
+                </div>
+                {% if reservations %}
+                {% for r in reservations %}
+                <!-- Listing -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card listing-preview">
+                        <img class="card-img-top" src="{{r.car.mainImage.url}}" alt="{{r}}">
+                        <div class="card-img-overlay">
+                            <h2>
+                                <span class="badge badge-secondary text-white">{{r.car.cost | intcomma:False }} تومان</span>
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="listing-heading text-center">
+                                <h4 class="text-primary">{{r.car.name}}</h4>
+                            </div>
+                            <hr>
+                            <div class="row py-2 text-secondary">
+                                <div class="col-6">
+                                    سال تولید: {{r.car.yearOfProduction}}
+                                </div>
+                                <div class="col-6">
+                                    رنگ : {{r.car.color}}</div>
+                            </div>
+                            <div class="row py-2 text-secondary">
+                                <div class="col-6">
+                                    ساخت کشور: {{r.car.country}} </div>
+                                <div class="col-6">
+                                    مدل: {{r.car.bodyType}} </div>
+                            </div>
+                            <hr>
+                            <a href="#" class="btn btn-primary btn-block">اطلاعات بیشتر</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'profile-info')" id="defaultOpen">مشخصات شخصی من</button>
+            <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">آگهی های من</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris')">خودروهای من</button>
+        </div>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</div>
+{% endblock %}
+
+{% block scriptlink %}
+<script src="{% static 'js/app-main-page.js' %}"></script>
+{% endblock scriptlink %}
+{% block footer %}
+
+{% endblock footer %}

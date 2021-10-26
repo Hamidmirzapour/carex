@@ -1,0 +1,55 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% block title %}
+    گالری تصاویر
+{% endblock title %}
+
+{% block stylelink %}
+    <link rel="stylesheet" href="{% static 'css/style-main-page.css' %}">    
+    <link rel="stylesheet" href="{% static 'css/style-gallery.css' %}">
+{% endblock stylelink %}
+
+{% block body %}
+    <div class="container" style="width:100%;">
+        <div class="viewport">
+            <div class="control left-arrow"><i class="fas fa-arrow-left"></i></div>
+            <div class="cube cube-1">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+            </div>
+            <div class="cube cube-2">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+            </div>
+            <div class="cube cube-3">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+            </div>
+            <div class="control right-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="control play-pause"><i class="fas fa-play"></i></div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block footer %}
+
+{% endblock footer %}
+
+{% block scriptlink %}
+        <script src="{% static 'js/app-main-page.js' %}"></script>
+        <script src="{% static 'js/app-gallery.js' %}"></script>
+{% endblock  %}
+

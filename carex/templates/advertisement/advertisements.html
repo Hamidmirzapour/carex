@@ -1,0 +1,87 @@
+    {% extends "shared/base.html" %}
+    {% load static %}
+    {% load humanize %}
+
+
+    {% block stylelink %}
+    <link rel="stylesheet" href="{% static 'css/style-advertisements-list.css' %}">
+    {% endblock stylelink %}
+
+
+
+    {% block title %}
+    لیست آگهی ها
+    {% endblock title %}
+
+    {% block body %}
+    <section id="showcase-inner" class="py-5 text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1 class="display-4">لیست آگهی ها</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section id="bc" class="mt-3">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="main-page.html">
+                            <i class="fas fa-home"></i> صفحه اصلی</a>
+                    </li>
+                    <li class="breadcrumb-item active"> لیست آگهی ها</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Listings -->
+    <section id="listings" class="py-5">
+        <div class="container">
+            <div class="row text-center">
+
+                {% for ads in advertisements %}
+                <!-- Listing 1 -->
+                {% if ads.enghezaDate == today %}
+
+                {% else %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card listing-preview">
+                        <img class="card-img-top" src="{{ ads.image1.url }}" alt="">
+                        <div class="card-body">
+                            <div class="listing-heading text-center">
+                                <h4 class="text-primary">{{ads.title}}</h4>
+                            </div>
+                            <hr>
+                            <div class="row py-2 text-secondary">
+                                <div class="col-6">
+                                    <i class="fas fa-map-marker"></i>{{ads.city}}</div>
+                                <!-- <div class="col-6">
+                                    <i class="fas fa-clock"></i>{{ads.enghezaDate}}</div> -->
+                            </div>
+                            <div class="row py-2 text-secondary">
+                                <div class="col-6">
+                                    <i class=""></i>{{ads.user}}</div>
+                                    <a href="{% url 'advertisement:detail' ads.id %}">اطلاعات
+                                        کاربر</a>        
+                            </div>
+                            <hr>
+                            <div class="col-12 price">قیمت : {{ads.cost | intcomma:False}} تومان </div>
+                            <hr>
+                            <a href="{% url 'advertisement:detail' ads.id %}" class="btn btn-primary btn-block">اطلاعات
+                                بیشتر</a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    {% endblock body %}

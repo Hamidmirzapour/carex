@@ -1,0 +1,46 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+  font-family: 'Nazanin';
+  src: url('../fonts/Nazanin.eot?#') format('eot'),  
+       url('../fonts/Nazanin.woff') format('woff'),
+       url('../fonts/Nazanin.ttf') format('truetype');
+  font-style:normal;
+  font-weight:normal;
+}
+@font-face {
+  font-family: 'IRANSans';
+  src: url('../fonts/IRANSansWeb.eot?#') format('eot'),  
+       url('../fonts/IRANSansWeb.woff') format('woff'),
+       url('../fonts/IRANSansWeb.woff2') format('woff2'),
+       url('../fonts/IRANSansWeb.ttf') format('truetype');
+  font-style:normal;
+  font-weight:normal;
+}
+body{
+	font-family: IRANSans;
+}
+a{
+	text-decoration: none !important;
+}
+a:hover{
+	text-decoration: none !important;
+}
+#showcase-inner {
+    background: url(../images/1.jpg) no-repeat center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px; 
+}
+#listings h3{
+	font-weight: 700;
+}
+.card-body{
+    font-size: 14px;
+}
+.listing-preview a {
+    position: relative; 
+}

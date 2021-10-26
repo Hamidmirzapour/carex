@@ -1,0 +1,22 @@
+{% extends "shared/base.html" %}
+
+{% block title %}
+    ثبت نام
+{% endblock title %}
+
+{% block body %}
+<div class="register-form">
+    <div class="register-header">
+        <h4>ثبت نام</h4>
+    </div>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="ثبت نام"></p>
+    </form>
+</div>
+
+{% endblock body %}
+{% block footer %}
+
+{% endblock footer %}

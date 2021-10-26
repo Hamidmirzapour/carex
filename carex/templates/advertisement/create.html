@@ -1,0 +1,29 @@
+{% extends "shared/base.html" %}
+
+{% block body %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{{userid}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="text-align: right; position: absolute; top: 20%; padding: 20px;" >
+            <form action="" method="post" enctype="multipart/form-data">
+                {{form.as_p}}
+                {% csrf_token %}
+                <button class="btn btn-primary" type="submit" style="float:left; margin-left:20px;">ذخیره</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+{% block footer %}
+
+{% endblock footer %}

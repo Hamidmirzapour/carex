@@ -1,0 +1,248 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block stylelink %}
+<link rel="stylesheet" href="{% static 'css/style-product-detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/style-main-page.css' %}">
+{% endblock stylelink %}
+
+{% block scriptlink %}
+<script src="{% static 'js/app-product-detail.js' %}"></script>
+<script src="{% static 'js/lightbox.js' %}"></script>        
+<script src="{% static 'js/app-main-page.js' %}"></script>
+{% endblock scriptlink %}
+
+{% block title %}
+{{super}} {{car.name}}
+{% endblock title %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="header col-12" style="background: linear-gradient(to right, rgba(0, 0, 0, .7),
+    rgba(0, 0, 0, .8)), url({% static 'images/1.jpg' %}) no-repeat center;
+   background-size: cover;
+   filter: contrast(70%);
+    height: 50vh ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+            <img src="{{car.mainImage.url}}">
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'technical')" id="defaultOpen">مشخصات کلی</button>
+        <button class="tablinks" onclick="openCity(event, 'facial')">اطلاعات فنی</button>
+        <button class="tablinks" onclick="openCity(event, 'gallery')">گالری تصاویر</button>
+        <button class="tablinks" onclick="openCity(event, 'reserve')">رزرو</button>
+
+    </div>
+
+    <div id="technical" class="tabcontent">
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">نام خودرو:</h5>
+                    <p class="card-text">{{car.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">برند:</h5>
+                    <p class="card-text">{{car.brand}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">کشور سازنده:</h5>
+                    <p class="card-text">{{car.country}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">سال ساخت</h5>
+                    <p class="card-text">{{car.yearOfProduction}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">قیمت:</h5>
+                    <p class="card-text">{{car.cost | intcomma:False}} تومان </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">معرفی کوتاه:</h5>
+                    <p class="card-text">{{car.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="facial" class="tabcontent">
+        <table>
+            <tr>
+                <td>نوع بدنه</td>
+                <td>{{car.bodyType}}</td>
+            </tr>
+            <tr>
+                <td>حجم موتور (بر حسب سی سی)</td>
+                <td>{{car.engineVolume}} سی سی </td>
+            </tr>
+            <tr>
+                <td>نوع موتور</td>
+                <td>{{car.engineType}}</td>
+            </tr>
+            <tr>
+                <td>تعداد سیلندرها</td>
+                <td>{{car.cylinderNum}}</td>
+            </tr>
+            <tr>
+                <td>تعداد سوپاپ ها</td>
+                <td>{{car.valveNum}}</td>
+            </tr>
+            <tr>
+                <td>ظرفیت باک</td>
+                <td>{{car.tankCapacity}} لیتر </td>
+            </tr>
+            <tr>
+                <td>حداکثر توان خروجی (اسب بخار)</td>
+                <td>{{car.maxPower}} اسب بخار </td>
+            </tr>
+            <tr>
+                <td>حداکثر گشتاور (دور بر دقیقه)</td>
+                <td>{{car.maxTorque}} دور بر دقیقه </td>
+            </tr>
+            <tr>
+                <td>نوع جعبه دنده</td>
+                <td>{{car.gearboxType}}</td>
+            </tr>
+            <tr>
+                <td>تعداد دنده</td>
+                <td>{{car.gearboxNum}}</td>
+            </tr>
+            <tr>
+                <td>نوع سیستم ترمز</td>
+                <td>{{car.breakType}}</td>
+            </tr>
+            <tr>
+                <td>حداکثر سرعت</td>
+                <td>{{car.maxSpeed}} کیلومتر بر ساعت </td>
+            </tr>
+            <tr>
+                <td>شتاب 0 تا 100</td>
+                <td>{{car.zeroTOHundredAcceleration}} ثانیه </td>
+            </tr>
+            <tr>
+                <td>مصرف سوخت شهری</td>
+                <td>{{car.cityFuelUse}} لیتر در هر 100 کیلومتر </td>
+            </tr>
+            <tr>
+                <td>مصرف سوخت جاده ای</td>
+                <td>{{car.roadFuelUse}} لیتر در هر 100 کیلومتر </td>
+            </tr>
+        </table>
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">امکانات رفاهی و آپشن ها:</h5>
+                    <p class="card-text">{{car.options}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery" class="tabcontent">
+        <!-- Images used to open the lightbox -->
+        <div class="row">
+            <div class="column">
+                <img src="{{car.mainImage.url}}" onclick="openModal();currentSlide(1)" class="hover-shadow">
+            </div>
+            <div class="column">
+                <img src="{{car.mainImage.url}}" onclick="openModal();currentSlide(2)" class="hover-shadow">
+            </div>
+            <div class="column">
+                <img src="{{car.mainImage.url}}" onclick="openModal();currentSlide(3)" class="hover-shadow">
+            </div>
+            <div class="column">
+                <img src="{{car.mainImage.url}}" onclick="openModal();currentSlide(4)" class="hover-shadow">
+            </div>
+        </div>
+
+        <!-- The Modal/Lightbox -->
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="{{car.mainImage.url}}" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="{{car.mainImage.url}}" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="{{car.mainImage.url}}" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="{{car.mainImage.url}}" style="width:100%">
+                </div>
+
+                <!-- Next/previous controls -->
+                <a class="prev" onclick="plusSlides(-1)">&#10095;</a>
+                <a class="next" onclick="plusSlides(1)">&#10094;</a>
+
+
+                <!-- Thumbnail image controls -->
+                <div class="column">
+                    <img class="demo" src="{{car.mainImage.url}}" onclick="currentSlide(1)" alt="Nature">
+                </div>
+
+                <div class="column">
+                    <img class="demo" src="{{car.mainImage.url}}" onclick="currentSlide(2)" alt="Snow">
+                </div>
+
+                <div class="column">
+                    <img class="demo" src="{{car.mainImage.url}}" onclick="currentSlide(3)" alt="Mountains">
+                </div>
+
+                <div class="column">
+                    <img class="demo" src="{{car.mainImage.url}}" onclick="currentSlide(4)" alt="Lights">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if car.status == 'رزرو شده' %}
+        <div id="reserve" class="tabcontent text-center">
+        <p class="mt-5">متاسفانه این خودرو رزرو شده است!!!</p>
+    </div>
+    {% else %}
+        <div id="reserve" class="tabcontent text-center">
+        <p class="mt-5">شما می توانید برای رزرو این خودرو بر روی دکمه زیر را کلیک نمایید.</p>
+        <a href="{% url 'car:reserve' car.id %}" class="btn" style="background-color:#16c3cf; color:#fff; width: 80px;">رزرو</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock body %}
+{% block footer %}
+{% endblock %}

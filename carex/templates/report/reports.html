@@ -1,0 +1,237 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}
+گزارشات
+{% endblock title %}
+
+{% block body %}
+<div class="container-fluid" style="background-color:#fff;">
+    <div class="row" style="padding-top:10%;">
+        <div class="col-lg-6">
+            <canvas id="dailycars" width="50" height="20"></canvas>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+            <script type="text/javascript" src="{% static 'js/chart.min.js' %}"></script>
+            <script>
+                var ctx = document.getElementById('dailycars').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['امروز', 'دیروز', 'دو روز پیش', 'سه روز پیش', 'چهار روز پیش', 'پنج روز پیش', 'شش روز پیش', 'هفت روز پیش'],
+                        datasets: [{
+                            label: 'تعداد خودروها',
+                            data: ["{{todayCarsCount}}", "{{yesterdayCarsCount}}", "{{twoDaysAgoCarsCount}}", "{{threeDaysAgoCarsCount}}"
+                                , "{{fourDaysAgoCarsCount}}", "{{fiveDaysAgoCarsCount}}", "{{sixDaysAgoCarsCount}}", "{{sevenDaysAgoCarsCount}}"],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+        <div class="col-lg-6">
+            <canvas id="weekcars" width="50" height="20"></canvas>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+            <script type="text/javascript" src="{% static 'js/chart.min.js' %}"></script>
+            <script>
+                var ctx = document.getElementById('weekcars').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['این هفته', 'هفته پیش', 'دو هفته پیش', 'سه هفته پیش'],
+                        datasets: [{
+                            label: 'تعداد خودروها',
+                            data: ["{{thisWeekCarsCount}}", "{{lastWeekCarsCount}}", "{{threeWeeksAgoCarsCount}}", "{{fourWeeksAgoCarsCount}}"
+                            ],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+
+        <div class="col-lg-6">
+            <canvas id="dailyads" width="50" height="20"></canvas>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+            <script type="text/javascript" src="{% static 'js/chart.min.js' %}"></script>
+            <script>
+                var ctx = document.getElementById('dailyads').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['امروز', 'دیروز', 'دو روز پیش', 'سه روز پیش', 'چهار روز پیش', 'پنج روز پیش', 'شش روز پیش', 'هفت روز پیش'],
+                        datasets: [{
+                            label: 'تعداد آگهی ها',
+                            data: ["{{todayAdvertisementsCount}}", "{{yesterdayAdvertisementsCount}}", "{{twoDaysAgoAdvertisementsCount}}", "{{threeDaysAgoAdvertisementsCount}}"
+                                , "{{fourDaysAgoAdvertisementsCount}}", "{{fiveDaysAgoAdvertisementsCount}}", "{{sixDaysAgoAdvertisementsCount}}", "{{sevenDaysAgoAdvertisementsCount}}"],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+
+        <div class="col-lg-6">
+            <canvas id="weekads" width="50" height="20"></canvas>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+            <script type="text/javascript" src="{% static 'js/chart.min.js' %}"></script>
+            <script>
+                var ctx = document.getElementById('weekads').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['این هفته', 'هفته پیش', 'دو هفته پیش', 'سه هفته پیش'],
+                        datasets: [{
+                            label: 'تعداد آگهی ها',
+                            data: ["{{thisWeekAdvertisementsCount}}", "{{lastWeekAdvertisementsCount}}", "{{threeWeeksAgoAdvertisementsCount}}", "{{fourWeeksAgoAdvertisementsCount}}"
+                            ],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+
+        <div class="col-lg-6 mt-5">
+            <canvas id="dailyusers" width="50" height="20"></canvas>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+            <script type="text/javascript" src="{% static 'js/chart.min.js' %}"></script>
+            <script>
+                var ctx = document.getElementById('dailyusers').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['امروز', 'دیروز', 'دو روز پیش', 'سه روز پیش', 'چهار روز پیش', 'پنج روز پیش', 'شش روز پیش', 'هفت روز پیش'],
+                        datasets: [{
+                            label: 'تعداد کاربران',
+                            data: ["{{todayUsersCount}}", "{{yesterdayUsersCount}}", "{{twoDaysAgoUsersCount}}", "{{threeDaysAgoUsersCount}}"
+                                , "{{fourDaysAgoUsersCount}}", "{{fiveDaysAgoUsersCount}}", "{{sixDaysAgoUsersCount}}", "{{oneWeekAgoUsersCount}}"],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block footer %}
+
+{% endblock footer %}

@@ -1,0 +1,18 @@
+{% extends "shared/base.html" %}
+
+{% block title %}Logged out{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="text-align:right; position:absolute; top:20%;">
+            <h1>خارج شدید</h1>
+            <p>شما با موفقیت از حساب کاربری خود خارج شده اید. و می توانید دوباره <a href="{% url 'account:login' %}">وارد</a> شوید.</p>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block footer %}
+
+{% endblock footer %}
